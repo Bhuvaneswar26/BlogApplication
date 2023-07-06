@@ -85,6 +85,13 @@ const isAuth = (req, res, next) => {
 const port = process.env.PORT || 8000;
 
 
+
+app.get('/', (req, res) => {
+  res.redirect('/login');
+});
+
+
+
 app.use('/', login)
 app.use('/dashboard', dashboard)
 app.use('/createpost', createpost)
