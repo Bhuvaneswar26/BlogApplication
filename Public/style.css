@@ -1,0 +1,136 @@
+/* .nav-logo{
+    border-radius: 15px;
+    height: 70px;
+    width: 50px;
+}
+.blog-post-comments {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.blog-post-comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-post-comment-author {
+    margin-bottom: 10px;
+}
+
+.blog-post-comment-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.blog-post-comment-author strong {
+    font-weight: bold;
+}
+
+.blog-post-comment-content {
+    margin-bottom: 10px;
+}
+
+.blog-post-actions {
+    margin-top: 10px;
+}
+
+.blog-post-like {
+    color: #337ab7;
+}
+
+.blog-post-share {
+    color: #000;
+}
+
+.blog-post-report {
+    color: #dd0031;
+}
+
+@media (max-width: 768px) {
+    .blog-post-comments {
+        margin-top: 0;
+        border: none;
+        padding: 0;
+    }
+} */
+.nav-logo {
+    border-radius: 15px;
+    height: 70px;
+    width: 50px;
+}
+
+.blog-post-comments {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.blog-post-comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-post-comment-author {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.blog-post-comment-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.blog-post-comment-author strong {
+    font-weight: bold;
+}
+
+.blog-post-comment-content {
+    margin-bottom: 10px;
+}
+
+.blog-post-actions {
+    margin-top: 10px;
+}
+
+.blog-post-like
+{
+    color: #337ab7;
+        text-decoration: none;
+        margin-right: 15px;
+}
+.blog-post-share {
+    color: #cdd708;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.blog-post-report {
+    color: #dd0031;
+    text-decoration: none;
+}
+
+.blog-post-comments-dropdown {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.blog-post-comments-dropdown a {
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .blog-post-comments {
+        margin-top: 0;
+        border: none;
+        padding: 0;
+    }
+}

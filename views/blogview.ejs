@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bhuvaneswar Blog Application</title>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link href="/css/templatemo-pod-talk.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .nav-logo {
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+        }
+
+        .blog-post-comments {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .blog-post-comment-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blog-post-comment-author {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-post-comment-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .blog-post-comment-author strong {
+            font-weight: bold;
+        }
+
+        .blog-post-comment-content {
+            margin-bottom: 10px;
+        }
+
+        .blog-post-actions {
+            margin-top: 10px;
+        }
+
+        .blog-post-like{
+            color: #088cff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .blog-post-share {
+            color: #8911d4d8;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .blog-post-report {
+            color: #dd0031;
+            text-decoration: none;
+        }
+
+        .blog-post-comments-dropdown {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .blog-post-comments-dropdown a {
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .blog-post-comments {
+                margin-top: 0;
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <nav class="navbar navbar-expand-md">
+        <div class="container">
+            <a class="navbar-brand me-lg-5 me-0" href="login">
+                <img src="images/logo.png" class="logo-image nav-logo img-fluid" alt="bhuvaneswar">
+            </a>
+            <div class="ms-4">
+                <a href="/dashboard" class="btn custom-btn custom-border-btn smoothscroll">Home</a>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="container">
+
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-12">
+                        <div class="section-title-wrap mb-5">
+                            <h4 class="section-title">Blog By <p style="margin:auto;"><%= blogdata.createdby %></p></h4>
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-12">
+                                <div class="custom-block-icon-wrap">
+                                    <div class="custom-block-image-wrap custom-block-image-detail-page">
+                                        <img src="<%= imagePath %>" class="custom-block-image img-fluid" alt="sorry"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-12">
+                                <div class="custom-block-info">
+                                    <h2 class="mb-2"><%= blogdata.title %></h2>
+
+                                    <h4><h2 class="mb-2"><%= blogdata.caption %></h2></h4>
+                                    <p class="blog-post-content" style="color: black; size: 1rem; font-weight: 500;"><%= blogdata.description %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-post-actions" style="margin:auto; background-color: #0a7b4456; padding: 1rem 1rem ; width: fit-content" >
+                    <% if (!likeStatus) { %>
+                        <a href="/likepost/<%= blogdata._id %>" class="blog-post-like" style="font-weight: 600;"><i class="fa-solid fa-heart">&nbsp;&nbsp;LIKE</i></a>
+                    <% } else { %>
+                        <a href="/likepost/<%= blogdata._id %>" class="blog-post-like" style="font-weight: 600;"><i class="fa-solid fa-heart">&nbsp;&nbsp;Dislike %></i></a>
+                    <% } %>
+
+                    <a href="#" class="blog-post-share" style="font-weight: 600";> <i class="fa-solid fa-share-alt">&nbsp;&nbsp;SHARE</i></a>
+                    <a>
+                    <form action="/postcomment/<%= blogdata._id %>" method="post">
+                        <input type="text" name="comment" placeholder="Comment here">
+                        <button  type="submit" style="background-color: #9c05f496;">Comment</button>
+                    </form>
+                    </a>
+                </div>
+                
+            <div class="blog-post-comments">
+                <h3>Comments</h3>
+                <ul>
+                <% blogdata.comment.forEach(item =>{ %>
+                <li class="blog-post-comment">
+                        <div class="blog-post-comment-author">
+                            <i class="fa-regular fa-user"></i>
+                            <strong>&nbsp;&nbsp;<%= item.name %></strong>
+                        </div>
+                        <div class="blog-post-comment-content">
+                            <p><%= item.comment %></p>
+                        </div>
+                    </li>
+                <% }) %>
+                </ul>
+            </div>
+            </div>
+        </main>
+        <%- include('./partials/footer.ejs') %>
+        <script src="https://kit.fontawesome.com/ba6d17dfa2.js" crossorigin="anonymous"></script>
+    </body>
+</html>
