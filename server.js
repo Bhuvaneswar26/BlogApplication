@@ -7,6 +7,8 @@ const session = require('express-session')
 const mongosession = require('connect-mongodb-session')(session)
 const morgan = require('morgan')
 const dotenv = require('dotenv');
+const methodOverride = require('method-override');
+
 
 
 
@@ -23,11 +25,18 @@ const allblogs = require('./Routes/allblogs')
 const likepost = require('./Routes/likepost')
 const postcomment = require('./Routes/postcomment');
 const themeblogs = require('./Routes/themeblogs');
+const adminviewpost = require('./Routes/adminviewpost')
+const admincreatepost = require('./Routes/admincreatepost')
+const admindashboard = require('./Routes/admindashboard')
+const adminupdatepost = require('./Routes/adminupdatepost')
 
 
 
 dotenv.config();
 const app = express();
+
+app.use(methodOverride('_method'));
+
 
 
 app.use(cookieparser())
@@ -102,7 +111,11 @@ app.use('/allblogs', allblogs)
 app.use('/readblog', readblog)
 app.use('/likepost', likepost)
 app.use('/postcomment', postcomment)
-app.use('/themeblogs',themeblogs)
+app.use('/themeblogs', themeblogs)
+app.use('/admindashboard',admindashboard)
+app.use('/admincreatepost', admincreatepost)
+app.use('/adminviewpost', adminviewpost)
+app.use('/adminupdatepost',adminupdatepost)
 
 
 app.listen(port, (req, res) => {

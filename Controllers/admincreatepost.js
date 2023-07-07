@@ -1,15 +1,13 @@
 const postmodel = require("../Schemas/post");
-const session = require("express-session");
 const multer = require("multer");
 
-const createpost = (req, res) => {
-  res.render("createpost");
+const admincreatepost = (req, res) => {
+  res.render("admincreatepost");
 };
 
-const createpostverify = async (req, res) => {
+const admincreatepostverify = async (req, res) => {
   try {
     if (req.file) {
-      console.log(req.session.usermail);
       const data = postmodel({
         title: req.body.title,
         description: req.body.description,
@@ -18,7 +16,7 @@ const createpostverify = async (req, res) => {
           data: req.file.filename,
           contenttype: "image/jpg/png",
         },
-        createdby: req.session.usermail,
+        createdby: "admin",
         like: [],
         Comment: [],
         theme:req.body.theme
@@ -34,10 +32,10 @@ const createpostverify = async (req, res) => {
         });
     }
 
-    res.redirect("/dashboard");
+    res.redirect("/admindashboard");
   } catch (error) {
     console.log("Error:", error);
   }
 };
 
-module.exports = { createpost, createpostverify };
+module.exports = { admincreatepost, admincreatepostverify };

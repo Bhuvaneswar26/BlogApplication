@@ -43,11 +43,12 @@ const dashboard = async (req, res) => {
   const mail = req.session.usermail;
 
   try {
+
     const themes = await postmodel.distinct('theme');
     const latestposts = await latestpost();
-      const mostLikedPosts = await getMostLikedPosts();
+    const mostLikedPosts = await getMostLikedPosts();
       // console.log(mostLikedPosts)
-    const userdata = await userschema.findOne({ mail: mail });
+    const userdata = await userschema.findOne({ mail: mail })
     res.render('dashboard', { userdata: userdata, latestposts: latestposts, themes: themes, mostliked: mostLikedPosts });
   } catch (error) {
     console.log(error);

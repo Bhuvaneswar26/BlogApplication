@@ -11,13 +11,13 @@ const login = (req, res) => {
 const loginverify = async (req, res) => {
     const maill = req.body.mail;
     const password = req.body.password;
-    console.log(maill, password);
+    // console.log(maill, password);
 
     try {
         const user = await usermodel.findOne({ mail: maill });
 
-        if (!user || user.password !== password) {
-            res.render('login');
+      if (!user || user.password !== password) {
+          res.render('login');
         } else {
             req.session.isAuth = true;
             req.session.usermail = maill;

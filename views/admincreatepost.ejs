@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
-  <body>
-    <!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -52,7 +43,7 @@
 
                     
                         <div class="ms-4">
-                            <a href="login" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
+                            <a href="admindashboard" class="btn custom-btn custom-border-btn smoothscroll">Home</a>
                         </div>
                     </div>
                 </div>
@@ -69,34 +60,45 @@
           <div class="card-body p-5 text-center">
 
             <div class="mb-md-5 mt-md-1 pb-1">
-              <h2 class="fw-bold mb-2 text-uppercase">Login <br> or</h2>
-              <a href="/adminlogin"><p class="text-dark-50 mb-5" style="font-size: 1.2rem; font-weight: 600; color: rgb(255, 255, 255); padding: 0.7rem;background-color: rgba(35, 68, 140, 0.899); border-radius: 1rem; width: fit-content; margin: auto;">Login As Admin</p></a>
 
-              <form action="/login" method="post">
+              <h2 class="fw-bold mb-2 text-uppercase">Admin Create Post</h2>
+              <p class="text-dark-50 mb-5">Please  details</p>
 
-              <div class="form-outline form-dark mb-2">
-                <label class="form-label" for="typeEmailX">Email</label>
-                <input type="email" id="typeEmailX" name="mail" class="form-control form-control-lg" />
+              <form action="/admincreatepost" method="post" enctype="multipart/form-data">
+
+              <div class="form-outline form-dark mb-4">
+                <label class="form-label" for="typedescriptionX">Theme</label>
+                <input type="text"  id="typethemeX" name="theme" class="form-control form-control-lg"></input>
               </div>
 
-              <div class="form-outline form-dark mb-2">
-                <label class="form-label" for="typePasswordX">Password</label>
-                <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" />
+              <div class="form-outline form-dark mb-4">
+                <label class="form-label" for="typetextX">Title</label>
+                <input type="text" id="typetextx" name="title" class="form-control form-control-lg" />
               </div>
 
-              <p class="small mb-5 pb-lg-2"><a class="text-dark-50" href="#!">Forgot password?</a></p>
+              <div class="form-outline form-dark mb-4">
+                <label class="form-label" for="typecaptionX">Caption</label>
+                <input type="text" id="typecaptionX" name="caption" class="form-control form-control-lg" />
+              </div>
 
-              <button class="btn btn-outline-dark btn-lg px-5" type="submit">Login</button>
+              <div class="form-outline form-dark mb-4">
+                <label class="form-label" for="typedescriptionX">Description</label>
+                <textarea type="text" rows="5" id="typedescriptionX" name="description" class="form-control form-control-lg"></textarea>
+              </div>
+
+            <div class="form-outline form-dark mb-4">
+                <label class="form-label" for="typeimageX">Image</label>
+                <input type="file" id="typeimageX" name="file" class="form-control form-control-lg" />
+              </div>
+
+
+              <button class="btn btn-outline-dark btn-lg px-5" type="submit">Post</button>
 
               </form>
 
 
             </div>
 
-            <div>
-              <p class="mb-0">Don't have an account? <a href="signup" class="text-dark-50 fw-bold">Sign Up</a>
-              </p>
-            </div>
 
           </div>
         </div>
